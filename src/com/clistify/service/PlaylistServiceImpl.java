@@ -1,11 +1,21 @@
 package com.clistify.service;
 
+import com.clistify.client.SpotifyClient;
+
 public class PlaylistServiceImpl implements PlaylistService {
-    
+    private SpotifyClient spotifyClient;
+
+    public PlaylistServiceImpl() {
+        this.spotifyClient = new SpotifyClient();
+        spotifyClient.authenticate();  // Authenticate with Spotify upon initialization
+    }
+
     @Override
     public void addSongToPlaylist(String playlistLink, String songDetails) {
-        // Mock adding song to playlist (this would interact with Spotify's API in the real implementation)
-        System.out.println("Adding '" + songDetails + "' to playlist: " + playlistLink);
-        // In real implementation, use SpotifyClient to add the song via Spotify's API
+        // Use SpotifyClient to search for the song
+        String songUri = spotifyClient.searchSong(songDetails);
+        
+        // Add the song to the playlist using its URI
+        spotifyClient.addSongToPlaylist(playlistLink, songUri);
     }
 }
