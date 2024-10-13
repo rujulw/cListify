@@ -12,8 +12,8 @@ import org.apache.http.util.EntityUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class SpotifyClient {
-    private static final String CLIENT_ID = "841994ba16fa4627a7e681d512b954c1";
-    private static final String CLIENT_SECRET = "2ac1196d7c3f434c83d9a7fc5acd0a2e";
+    private static final String CLIENT_ID = "";
+    private static final String CLIENT_SECRET = "";
     private static final String TOKEN_URL = "https://accounts.spotify.com/api/token";
     
     private String accessToken;
