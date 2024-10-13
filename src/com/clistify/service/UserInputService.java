@@ -14,5 +14,5 @@ public class UserInputService {
         return scanner.nextLine();
     }
 
-    // Add other input-related methods as needed
+    // Add additional methods for different types of inputs if needed
 }
