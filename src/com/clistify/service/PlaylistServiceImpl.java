@@ -7,7 +7,7 @@ public class PlaylistServiceImpl implements PlaylistService {
 
     public PlaylistServiceImpl() {
         this.spotifyClient = new SpotifyClient();
-        spotifyClient.authenticate();  // Authenticate with Spotify upon initialization
+        spotifyClient.authenticate();  // Authenticate with Spotify API
     }
 
     @Override
@@ -16,6 +16,10 @@ public class PlaylistServiceImpl implements PlaylistService {
         String songUri = spotifyClient.searchSong(songDetails);
         
         // Add the song to the playlist using its URI
-        spotifyClient.addSongToPlaylist(playlistLink, songUri);
+        if (songUri != null) {
+            spotifyClient.addSongToPlaylist(playlistLink, songUri);
+        } else {
+            System.err.println("Could not find the song.");
+        }
     }
 }
